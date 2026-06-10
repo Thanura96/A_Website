@@ -1,0 +1,316 @@
+@import "tailwindcss";
+
+/* Azonix */
+@font-face {
+  font-family: "Azonix";
+  src: url("./assets/fonts/Azonix.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Source Code Pro — Regular */
+@font-face {
+  font-family: "SourceCodePro";
+  src: url("./assets/fonts/SourceCodePro-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Source Code Pro — Light */
+@font-face {
+  font-family: "SourceCodePro";
+  src: url("./assets/fonts/SourceCodePro-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Source Code Pro — ExtraLight */
+@font-face {
+  font-family: "SourceCodePro";
+  src: url("./assets/fonts/SourceCodePro-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/Inter.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("./assets/fonts/HelveticaNowDisplay-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("./assets/fonts/HelveticaNowDisplay-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik-trial";
+  src: url("./assets/fonts/aeoniktrial.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Yapari Trial";
+  src: url("./assets/fonts/YapariTrial-Bold.ttf") format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Yapari Trial Regular";
+  src: url("./assets/fonts/YapariTrial-Regular.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: "Elios";
+  src: url("./assets/fonts/Elios.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SF Compact Rounded";
+  src: url("./assets/fonts/SF-Compact-Round.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  --font-azonix: "Azonix";
+  --font-code: "SourceCodePro";
+  --font-inter: "Inter";
+  --font-helvetica: "Helvetica";
+  --font-helvetica-bold: "Helvetica";
+  --font-aeonik: "Aeonik-trial";
+  --font-yapari: "Yapari Trial";
+  --font-yapari-regular: "Yapari Trial Regular";
+  --font-elios: "Elios";
+  --font-sf-compact: "SF Compact Rounded";
+}
+
+:root {
+  --font-elios: "Elios", sans-serif;
+}
+
+.font-elios {
+  font-family: "Elios", sans-serif;
+}
+
+@keyframes fadeSlideUpClose {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fadeSlideUpClose {
+  animation: fadeSlideUpClose 0.5s ease forwards;
+}
+
+/* Mobile menu slide */
+@keyframes mobileMenuSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-mobileMenu {
+  animation: mobileMenuSlide 0.35s ease forwards;
+}
+
+/* Mobile accordion */
+@keyframes accordionOpen {
+  0% {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  100% {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+.animate-accordion {
+  animation: accordionOpen 0.25s ease forwards;
+  overflow: hidden;
+}
+
+@keyframes accordionClose {
+  0% {
+    opacity: 1;
+    max-height: 500px;
+  }
+
+  100% {
+    opacity: 0;
+    max-height: 0;
+  }
+}
+
+.animate-accordionClose {
+  animation: accordionClose 0.25s ease forwards;
+  overflow: hidden;
+}
+
+/* -------------------------------------------------
+   HAMBURGER MENU
+   ------------------------------------------------- */
+.menu {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .menu {
+    display: none !important;
+  }
+}
+
+.line {
+  fill: none;
+  stroke: white;
+  stroke-width: 6;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line1 {
+  stroke-dasharray: 60 207;
+}
+
+.line2 {
+  stroke-dasharray: 60 60;
+}
+
+.line3 {
+  stroke-dasharray: 60 207;
+}
+
+.menu.opened .line1 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+}
+
+.menu.opened .line2 {
+  stroke-dasharray: 1 60;
+  stroke-dashoffset: -30;
+}
+
+.menu.opened .line3 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+}
+
+
+/* -------------------------------------------------
+   GRADIENT TEXT UTILITIES
+   ------------------------------------------------- */
+.text-gradient {
+  background: linear-gradient(150deg, #000000 0.5%, #ffffff 32%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient2 {
+  /* Image-matched ABSOL gradient */
+  background-image:
+    radial-gradient(closest-side at 6% 55%,
+      rgba(0, 0, 0, 0.92),
+      rgba(0, 0, 0, 0) 68%),
+    linear-gradient(90deg,
+      #4A500E 0%,
+      #878710 15%,
+      #C3C212 30%,
+      #E7FC10 50%,
+      #F1FB90 72%,
+      #F8FAF5 90%,
+      #FFFFFF 100%);
+  background-size: 35% 100%, 100% 100%;
+  background-position: 0 50%, 0 0;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply, normal;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-universal {
+  color: hsla(65, 100%, 50%, 1);
+}
+
+.title-abs .ltr:first-child {
+  filter: brightness(0.55);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.85);
+}
+
+
+.absolx-gradient {
+  background: linear-gradient(90deg,
+      hsla(0, 0%, 0%, 1) 3%,
+      hsla(65, 100%, 50%, 1) 20%,
+      hsla(0, 0%, 100%, 1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-stable {
+  background: linear-gradient(90deg,
+      #222222 0%,
+      #4a4a4a 5%,
+      #7d7d7d 30%,
+      #bfbfbf 35%,
+      #f2f2f2 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* -------------------------------------------------
+   SUBTITLE ANIMATION UTILITIES
+   ------------------------------------------------- */
+.subtitle-container .char {
+  display: inline-block;
+  margin: 0 !important;
+  padding: 0 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.subtitle-container .word {
+  display: inline-block;
+  margin-right: 0.25em;
+}
+
+.subtitle-container br {
+  display: block !important;
+}
